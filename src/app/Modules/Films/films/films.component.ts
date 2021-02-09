@@ -23,17 +23,18 @@ export class FilmsComponent implements OnInit {
     });
   }
 
-  //  this method is used to filter films based on search keyword
+  /**
+   * Implement client side search filter on the films
+   * list page to filter displayed films by title, or description
+   */
   searchTable(): void {
-    if (this.search !== "") {
-      this.films = this.films.filter((film) => {
-        return (
-          film.title.toLowerCase().indexOf(this.search.toLowerCase()) !== -1 ||
-          film.opening_crawl
-            .toLowerCase()
-            .indexOf(this.search.toLowerCase()) !== -1
-        );
-      });
-    }
+    if (this.search === "") return;
+    this.films = this.films.filter((film) => {
+      const { title, opening_crawl } = film;
+      return (
+        title.toLowerCase().indexOf(this.search.toLowerCase()) !== -1 ||
+        opening_crawl.toLowerCase().indexOf(this.search.toLowerCase()) !== -1
+      );
+    });
   }
 }

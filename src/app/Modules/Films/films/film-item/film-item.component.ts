@@ -9,9 +9,6 @@ import { customLink } from "src/app/Shared/utils/customLink";
   templateUrl: "./film-item.component.html",
 })
 export class FilmItemComponent implements OnInit {
-  // Inputs are assigned values
-  // which are passed from parent component (FilmsComponent.html)
-
   @Input() films: FilmModel[];
   @Input() columns: string[];
 
@@ -19,11 +16,12 @@ export class FilmItemComponent implements OnInit {
 
   ngOnInit() {}
 
-  // onRowSelect is used to get url for specific item for return URL
-
+  /**
+   * @param url swapi.dev link
+   * convert to local link and direct to the film page
+   */
   onRowSelect(url: string): void {
     const redirectUrl = customLink(url, _films_route);
-
     this.router.navigateByUrl(redirectUrl);
   }
 }
