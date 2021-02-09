@@ -1,0 +1,26 @@
+<!-- Header -->
+<div class="jumbotron">
+  <div class="container">
+    <h1>Star Wars API</h1>
+    <p>Utilization of Star Wars API</p>
+  </div>
+</div>
+<!-- Body -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1 class="mb-0">Films</h1>
+    </div>
+    <div class="col-md-6">
+      <input
+        (input)="searchTable()"
+        [(ngModel)]="search"
+        name="Search"
+        type="text"
+        class="form-control"
+        placeholder="Search by title or description"
+      />
+    </div>
+  </div>
+  <app-film-item [films]="films" [columns]="columns"></app-film-item>
+</div>

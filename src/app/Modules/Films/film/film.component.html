@@ -1,0 +1,33 @@
+<!-- Header -->
+<div class="jumbotron">
+  <div class="container">
+    <a [routerLink]="filmsUrl">&lt;&lt; Back to Films</a>
+  </div>
+</div>
+<!-- Body -->
+<div class="container">
+  <div class="card" *ngIf="film">
+    <div class="card-header">
+      <b>{{ film.title }}</b>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let item of Mapping">
+        <span class="bg-secondary text-white p-1 mr-1 rounded">{{
+          item.label | titlecase
+        }}</span>
+        <!-- For text -->
+        <span *ngIf="!item.isList && !item.isLink">{{ film[item.key] }}</span>
+        <!-- For single link -->
+        <a *ngIf="!item.isList && item.isLink" [href]="film[item.key]">{{
+          film[item.key]
+        }}</a>
+        <!-- For list of links -->
+        <div *ngIf="item.isList">
+          <div *ngFor="let link of film[item.key]">
+            <a [href]="link">{{ link }}</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
