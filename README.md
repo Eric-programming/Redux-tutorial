@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.6.
 
+API: https://swapi.dev 
+
 ## Getting Started
 
 1. Clone this repo
